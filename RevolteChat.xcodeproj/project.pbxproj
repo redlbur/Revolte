@@ -16,6 +16,11 @@
 		93C3170E27E5411900AA0250 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3170D27E5411900AA0250 /* RegisterViewController.swift */; };
 		93C3171227E555BB00AA0250 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3171127E555BB00AA0250 /* ChatViewController.swift */; };
 		93C3171427E57C3F00AA0250 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3171327E57C3F00AA0250 /* LoginViewController.swift */; };
+		93C3171827E6A46A00AA0250 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93C3171727E6A46A00AA0250 /* GoogleService-Info.plist */; };
+		93C3171B27E6C3F500AA0250 /* Contstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3171A27E6C3F400AA0250 /* Contstants.swift */; };
+		93C3171D27E6C96500AA0250 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3171C27E6C96500AA0250 /* Message.swift */; };
+		93C3172027E6CF6400AA0250 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3171E27E6CF6400AA0250 /* MessageCell.swift */; };
+		93C3172127E6CF6400AA0250 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C3171F27E6CF6400AA0250 /* MessageCell.xib */; };
 		F3224C6470F345E01415A78C /* Pods_RevolteChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF394AAF86A2F18527A95887 /* Pods_RevolteChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +38,11 @@
 		93C3170D27E5411900AA0250 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		93C3171127E555BB00AA0250 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		93C3171327E57C3F00AA0250 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		93C3171727E6A46A00AA0250 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		93C3171A27E6C3F400AA0250 /* Contstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contstants.swift; sourceTree = "<group>"; };
+		93C3171C27E6C96500AA0250 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		93C3171E27E6CF6400AA0250 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		93C3171F27E6CF6400AA0250 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		BF394AAF86A2F18527A95887 /* Pods_RevolteChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolteChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -54,7 +64,6 @@
 				79841E62718F90A28D5FCB18 /* Pods-RevolteChat.debug.xcconfig */,
 				2B1A0934918ECFBCA0E5A92D /* Pods-RevolteChat.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -87,6 +96,8 @@
 				93C316FF27E52B3D00AA0250 /* Assets.xcassets */,
 				93C3170127E52B3D00AA0250 /* LaunchScreen.storyboard */,
 				93C3170427E52B3D00AA0250 /* Info.plist */,
+				93C3171727E6A46A00AA0250 /* GoogleService-Info.plist */,
+				93C3171A27E6C3F400AA0250 /* Contstants.swift */,
 			);
 			path = RevolteChat;
 			sourceTree = "<group>";
@@ -94,6 +105,7 @@
 		93C3170A27E52B6600AA0250 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				93C3171C27E6C96500AA0250 /* Message.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -102,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				93C316FC27E52B3C00AA0250 /* Main.storyboard */,
+				93C3171E27E6CF6400AA0250 /* MessageCell.swift */,
+				93C3171F27E6CF6400AA0250 /* MessageCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,7 +199,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C3172127E6CF6400AA0250 /* MessageCell.xib in Resources */,
 				93C3170327E52B3D00AA0250 /* LaunchScreen.storyboard in Resources */,
+				93C3171827E6A46A00AA0250 /* GoogleService-Info.plist in Resources */,
 				93C3170027E52B3D00AA0250 /* Assets.xcassets in Resources */,
 				93C316FE27E52B3C00AA0250 /* Main.storyboard in Resources */,
 			);
@@ -245,7 +261,10 @@
 				93C316F727E52B3C00AA0250 /* AppDelegate.swift in Sources */,
 				93C316F927E52B3C00AA0250 /* SceneDelegate.swift in Sources */,
 				93C3171227E555BB00AA0250 /* ChatViewController.swift in Sources */,
+				93C3171D27E6C96500AA0250 /* Message.swift in Sources */,
+				93C3171B27E6C3F500AA0250 /* Contstants.swift in Sources */,
 				93C3170E27E5411900AA0250 /* RegisterViewController.swift in Sources */,
+				93C3172027E6CF6400AA0250 /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

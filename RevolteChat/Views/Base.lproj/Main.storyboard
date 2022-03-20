@@ -106,7 +106,7 @@
                                 </constraints>
                                 <color key="textColor" name="MidnightBlue"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4i-zG-WgQ">
                                 <rect key="frame" x="79" y="802" width="270" height="60"/>
@@ -134,11 +134,18 @@
                                 <color key="textColor" name="MidnightBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please create a new account." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jC-fT-22a">
+                                <rect key="frame" x="129.33333333333331" y="537" width="169.33333333333331" height="14.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HVH-HD-8Tu"/>
                         <color key="backgroundColor" name="Clouds"/>
                         <constraints>
                             <constraint firstItem="h4i-zG-WgQ" firstAttribute="centerX" secondItem="wsT-VN-Le4" secondAttribute="centerX" id="4eh-D4-XsV"/>
+                            <constraint firstItem="9jC-fT-22a" firstAttribute="top" secondItem="Oht-6K-hRO" secondAttribute="bottom" constant="24" id="EBb-ub-Rmf"/>
                             <constraint firstItem="Zfq-S8-z9P" firstAttribute="centerY" secondItem="wsT-VN-Le4" secondAttribute="centerY" constant="-20" id="GEg-Jb-f11"/>
                             <constraint firstItem="Oht-6K-hRO" firstAttribute="centerX" secondItem="wsT-VN-Le4" secondAttribute="centerX" id="K2I-IF-iuB"/>
                             <constraint firstItem="HVH-HD-8Tu" firstAttribute="bottom" secondItem="h4i-zG-WgQ" secondAttribute="bottom" constant="30" id="SIe-SK-yl0"/>
@@ -146,12 +153,14 @@
                             <constraint firstItem="vFf-qN-Umj" firstAttribute="centerX" secondItem="wsT-VN-Le4" secondAttribute="centerX" id="aDb-Aj-59K"/>
                             <constraint firstItem="Oht-6K-hRO" firstAttribute="top" secondItem="Zfq-S8-z9P" secondAttribute="bottom" constant="10" id="cNL-T0-0Jj"/>
                             <constraint firstItem="Zfq-S8-z9P" firstAttribute="top" secondItem="vFf-qN-Umj" secondAttribute="bottom" constant="40" id="ifV-9O-oen"/>
+                            <constraint firstItem="9jC-fT-22a" firstAttribute="centerX" secondItem="wsT-VN-Le4" secondAttribute="centerX" id="pnp-aZ-K9K"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="L6P-ry-tmw"/>
                     <connections>
                         <outlet property="emailTextfield" destination="Zfq-S8-z9P" id="Ib0-aD-ZgE"/>
                         <outlet property="passwordTextfield" destination="Oht-6K-hRO" id="yKj-lR-d5t"/>
+                        <outlet property="titleError" destination="9jC-fT-22a" id="GDH-fV-q2x"/>
                         <segue destination="3Vr-41-3ZF" kind="show" identifier="RegisterToChat" id="OA9-gm-gKO"/>
                     </connections>
                 </viewController>
@@ -167,7 +176,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vtw-Gp-SP7" userLabel="Email Textfield">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="redlbur@gmail.com" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vtw-Gp-SP7" userLabel="Email Textfield">
                                 <rect key="frame" x="64" y="423" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="jxh-CV-Kpc"/>
@@ -177,7 +186,7 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vgg-a7-i52" userLabel="Password Textfield">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vgg-a7-i52" userLabel="Password Textfield">
                                 <rect key="frame" x="64" y="473" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="LD5-hZ-9cg"/>
@@ -185,7 +194,7 @@
                                 </constraints>
                                 <color key="textColor" name="MidnightBlue"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REVOLTE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4t-n4-zxy">
                                 <rect key="frame" x="59" y="323" width="310" height="60"/>
@@ -213,6 +222,12 @@
                                     <action selector="loginPressed:" destination="JO1-Gj-MxR" eventType="touchUpInside" id="nw5-Kz-eqb"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Long time no see :)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSm-lY-ZCb" userLabel="Title Error">
+                                <rect key="frame" x="158.66666666666666" y="538" width="110.66666666666666" height="14.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="baT-na-Si1"/>
                         <color key="backgroundColor" name="Clouds"/>
@@ -224,13 +239,16 @@
                             <constraint firstItem="Z4t-n4-zxy" firstAttribute="centerX" secondItem="pRK-LG-cS3" secondAttribute="centerX" id="M73-DH-9kX"/>
                             <constraint firstItem="vgg-a7-i52" firstAttribute="top" secondItem="vtw-Gp-SP7" secondAttribute="bottom" constant="10" id="Smn-rV-cDa"/>
                             <constraint firstItem="vtw-Gp-SP7" firstAttribute="centerY" secondItem="pRK-LG-cS3" secondAttribute="centerY" constant="-20" id="lDG-lM-Uv4"/>
+                            <constraint firstItem="oSm-lY-ZCb" firstAttribute="top" secondItem="vgg-a7-i52" secondAttribute="bottom" constant="25" id="q6p-eS-sFa"/>
                             <constraint firstItem="vtw-Gp-SP7" firstAttribute="top" secondItem="Z4t-n4-zxy" secondAttribute="bottom" constant="40" id="wM6-6v-XHO"/>
+                            <constraint firstItem="oSm-lY-ZCb" firstAttribute="centerX" secondItem="pRK-LG-cS3" secondAttribute="centerX" id="zXj-AD-OBO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Wys-ip-0mI"/>
                     <connections>
                         <outlet property="emailTextfield" destination="vtw-Gp-SP7" id="6vO-kp-qA0"/>
                         <outlet property="passwordTextfield" destination="vgg-a7-i52" id="Wup-iC-2nw"/>
+                        <outlet property="titleError" destination="oSm-lY-ZCb" id="RbH-Oo-XZl"/>
                         <segue destination="3Vr-41-3ZF" kind="show" identifier="LoginToChat" id="ZVr-pM-eLG"/>
                     </connections>
                 </viewController>
@@ -250,7 +268,7 @@
                                 <rect key="frame" x="0.0" y="88" width="428" height="738"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Reusable Cell" id="Nsc-C6-aRN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ReusableCell" id="Nsc-C6-aRN">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nsc-C6-aRN" id="mwu-VA-DQJ">
@@ -268,7 +286,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="MyV-72-zA0"/>
                                         </constraints>
-                                        <color key="textColor" name="Clouds"/>
+                                        <color key="textColor" name="MidnightBlue"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -310,7 +328,13 @@
                             <constraint firstItem="Wnz-Jb-TQ9" firstAttribute="top" secondItem="VCQ-QO-2oz" secondAttribute="bottom" id="mWo-Yj-KRy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="v8N-kr-CLO"/>
+                    <navigationItem key="navigationItem" id="v8N-kr-CLO">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="Zu1-UI-Crt">
+                            <connections>
+                                <action selector="logOutPressed:" destination="3Vr-41-3ZF" id="PxR-ph-Vsg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="messageTextfield" destination="Wx8-EG-V4F" id="4eG-EU-18X"/>
                         <outlet property="tableView" destination="VCQ-QO-2oz" id="ay9-Zr-Yve"/>
@@ -340,7 +364,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OA9-gm-gKO"/>
+        <segue reference="ZVr-pM-eLG"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
