@@ -16,24 +16,20 @@ class ChatViewController: UIViewController{
     }
     
     var messages: [Message] = [
-        Message(sender: "redlbur@gmail.com", body: "Mike Wazowski is a big mouth with one eye.")
+        Message(sender: "redlbur@gmail.com", body: "Mike Wazowski is a big mouse with one eye.")
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = K.appName
+        navigationItem.hidesBackButton = true
+        tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
+        tableView.dataSource = self
+        
         
         messageTextfield.attributedPlaceholder = NSAttributedString(string: "Type something...", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray.withAlphaComponent(0.8)])
         
-//        tableView.delegate = self
-        tableView.dataSource = self
-        
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.init(red: 0.93, green: 0.94, blue: 0.95, alpha: 1.0)]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        
-        title = K.appName
-        navigationItem.hidesBackButton = true
-        
-        tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
-
     }
     
     @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
@@ -60,9 +56,3 @@ extension ChatViewController: UITableViewDataSource {
     
     
 }
-
-//extension ChatViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(indexPath.row)
-//    }
-//}
