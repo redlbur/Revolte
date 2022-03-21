@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,7 +31,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Log In"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Register">
+                                <buttonConfiguration key="configuration" style="tinted" title="Sign Up">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="30"/>
                                     <color key="baseForegroundColor" name="MidnightBlue"/>
                                     <color key="baseBackgroundColor" name="MidnightBlue"/>
@@ -88,8 +87,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zfq-S8-z9P" userLabel="Email Textfield">
+                            <textField opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zfq-S8-z9P" userLabel="Email Textfield">
                                 <rect key="frame" x="64" y="423" width="300" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="iNp-Ie-o4q"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="xu8-xU-DFm"/>
@@ -98,8 +98,9 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oht-6K-hRO" userLabel="Password Textfield">
+                            <textField opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oht-6K-hRO" userLabel="Password Textfield">
                                 <rect key="frame" x="64" y="473" width="300" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="lqj-Sr-8kb"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="qZz-jQ-4m1"/>
@@ -137,7 +138,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please create a new account." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jC-fT-22a">
                                 <rect key="frame" x="129.33333333333331" y="537" width="169.33333333333331" height="14.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="MidnightBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -178,6 +179,7 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="redlbur@gmail.com" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vtw-Gp-SP7" userLabel="Email Textfield">
                                 <rect key="frame" x="64" y="423" width="300" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="jxh-CV-Kpc"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" placeholder="YES" id="rqq-tN-QTd"/>
@@ -188,6 +190,7 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vgg-a7-i52" userLabel="Password Textfield">
                                 <rect key="frame" x="64" y="473" width="300" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="LD5-hZ-9cg"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="pUz-pr-enG"/>
@@ -225,7 +228,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Long time no see :)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSm-lY-ZCb" userLabel="Title Error">
                                 <rect key="frame" x="158.66666666666666" y="538" width="110.66666666666666" height="14.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="MidnightBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -266,23 +269,14 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VCQ-QO-2oz">
                                 <rect key="frame" x="0.0" y="88" width="428" height="738"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ReusableCell" id="Nsc-C6-aRN">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nsc-C6-aRN" id="mwu-VA-DQJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
+                                <color key="backgroundColor" name="Clouds"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wnz-Jb-TQ9">
                                 <rect key="frame" x="0.0" y="826" width="428" height="100"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type something..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wx8-EG-V4F">
                                         <rect key="frame" x="25" y="25" width="313" height="34"/>
+                                        <color key="backgroundColor" name="Clouds"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="MyV-72-zA0"/>
                                         </constraints>
@@ -364,7 +358,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZVr-pM-eLG"/>
+        <segue reference="OA9-gm-gKO"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
@@ -374,8 +368,5 @@
         <namedColor name="MidnightBlue">
             <color red="0.17000000178813934" green="0.23999999463558197" blue="0.31000000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

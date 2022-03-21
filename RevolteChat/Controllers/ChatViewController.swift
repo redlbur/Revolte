@@ -16,10 +16,12 @@ class ChatViewController: UIViewController{
     }
     
     var messages: [Message] = [
-        Message(sender: "redlbur@gmail.com", body: "Hi")
+        Message(sender: "redlbur@gmail.com", body: "Mike Wazowski is a big mouth with one eye.")
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        messageTextfield.attributedPlaceholder = NSAttributedString(string: "Type something...", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray.withAlphaComponent(0.8)])
         
 //        tableView.delegate = self
         tableView.dataSource = self
@@ -29,6 +31,8 @@ class ChatViewController: UIViewController{
         
         title = K.appName
         navigationItem.hidesBackButton = true
+        
+        tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
 
     }
     
@@ -49,8 +53,8 @@ extension ChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath)
-        cell.textLabel?.text = messages[indexPath.row].body
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! MessageCell
+        cell.label.text = messages[indexPath.row].body
         return cell
     }
     

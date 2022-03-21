@@ -11,12 +11,10 @@ class WelcomeViewController: UIViewController {
    
     @IBOutlet weak var titleLable: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         titleLable.text = ""
-        
         var charIndex = 0.0
         
         let titleText = K.appName
