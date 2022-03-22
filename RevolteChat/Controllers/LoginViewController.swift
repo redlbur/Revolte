@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
                     self.titleError.text = e.localizedDescription
                     print(e.localizedDescription)
                 } else {
-                    self.performSegue(withIdentifier: K.loginSegue, sender: self)
+                    self.performSegue(withIdentifier: K.LOGIN_SEGUE, sender: self)
                 }
             }
         }

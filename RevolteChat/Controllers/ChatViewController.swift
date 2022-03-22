@@ -10,49 +10,103 @@ import UIKit
 import Firebase
 
 class ChatViewController: UIViewController{
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var messageTextfield: UITextField!
-    @IBAction func sendPressed(_ sender: UIButton) {
-    }
+  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var messageTextfield: UITextField!
+  
+  let firestore = Firestore.firestore()
+  @IBAction func sendPressed(_ sender: UIButton) {
     
-    var messages: [Message] = [
-        Message(sender: "redlbur@gmail.com", body: "Mike Wazowski is a big mouse with one eye.")
-    ]
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = K.appName
-        navigationItem.hidesBackButton = true
-        tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
-        tableView.dataSource = self
-        
-        
-        messageTextfield.attributedPlaceholder = NSAttributedString(string: "Type something...", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray.withAlphaComponent(0.8)])
-        
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.init(red: 0.93, green: 0.94, blue: 0.95, alpha: 1.0)]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-    }
-    
-    @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
-        do {
-            try Auth.auth().signOut()
-            navigationController?.popToRootViewController(animated: true)
-        } catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError)
+    if let messageBody = messageTextfield.text,
+       let messageSender = Auth.auth().currentUser?.email {
+      firestore
+        .collection(K.FStore.COLLECTION_NAME)
+        .addDocument(
+          data: [K.FStore.SENDER_FIELD: messageSender,
+                 K.FStore.BODY_FIELD: messageBody,
+                 K.FStore.DATE_FIELD: Date().timeIntervalSince1970]
+        ) { error in
+          if let err = error {
+            print("Error: \(err)")
+          } else {
+            print("Saved data!")
+          }
         }
     }
+    messageTextfield.text = ""
+    
+    
+  }
+  
+  
+  var messages: [Message] = [
+    
+  ]
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    title = K.APP_NAME
+    navigationItem.hidesBackButton = true
+    tableView.register(UINib(nibName: K.CELL_NIB_NAME, bundle: nil), forCellReuseIdentifier: K.CELL_IDENTIFIRE)
+    tableView.dataSource = self
+    loadMessages()
+    
+    
+    messageTextfield.attributedPlaceholder = NSAttributedString(string: "Type something...", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray.withAlphaComponent(0.8)])
+    
+    let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.init(red: 0.93, green: 0.94, blue: 0.95, alpha: 1.0)]
+    navigationController?.navigationBar.titleTextAttributes = textAttributes
+  }
+  
+  func loadMessages() {
+    
+    firestore.collection(K.FStore.COLLECTION_NAME)
+      .order(by: K.FStore.DATE_FIELD)
+      .addSnapshotListener { querySnapshot, error in
+      
+      self.messages = []
+      
+      if let err = error {
+        print("Empty store or there some issue in Firestore: \(err)")
+      } else {
+        if let snapshotDocuments = querySnapshot?.documents {
+          for doc in snapshotDocuments {
+            let data = doc.data()
+            if let messageSender = data[K.FStore.SENDER_FIELD] as? String, let messageBody = data[K.FStore.BODY_FIELD] as? String {
+              let newMessage = Message(sender: messageSender, body: messageBody)
+              self.messages.append(newMessage)
+              
+              
+              DispatchQueue.main.async {
+                self.tableView.reloadData()
+              }
+              
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
+    do {
+      try Auth.auth().signOut()
+      navigationController?.popToRootViewController(animated: true)
+    } catch let signOutError as NSError {
+      print("Error signing out: %@", signOutError)
+    }
+  }
 }
 
 
 extension ChatViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! MessageCell
-        cell.label.text = messages[indexPath.row].body
-        return cell
-    }
-    
-    
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return messages.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: K.CELL_IDENTIFIRE, for: indexPath) as! MessageCell
+    cell.label.text = messages[indexPath.row].body
+    return cell
+  }
+  
+  
 }
