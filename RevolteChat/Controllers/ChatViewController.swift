@@ -29,12 +29,13 @@ class ChatViewController: UIViewController{
             print("Error: \(err)")
           } else {
             print("Saved data!")
+            
+            DispatchQueue.main.async {
+              self.messageTextfield.text = ""
+            }
           }
         }
     }
-    messageTextfield.text = ""
-    
-    
   }
   
   
@@ -61,29 +62,31 @@ class ChatViewController: UIViewController{
     firestore.collection(K.FStore.COLLECTION_NAME)
       .order(by: K.FStore.DATE_FIELD)
       .addSnapshotListener { querySnapshot, error in
-      
-      self.messages = []
-      
-      if let err = error {
-        print("Empty store or there some issue in Firestore: \(err)")
-      } else {
-        if let snapshotDocuments = querySnapshot?.documents {
-          for doc in snapshotDocuments {
-            let data = doc.data()
-            if let messageSender = data[K.FStore.SENDER_FIELD] as? String, let messageBody = data[K.FStore.BODY_FIELD] as? String {
-              let newMessage = Message(sender: messageSender, body: messageBody)
-              self.messages.append(newMessage)
-              
-              
-              DispatchQueue.main.async {
-                self.tableView.reloadData()
+        
+        self.messages = []
+        
+        if let err = error {
+          print("Empty store or there some issue in Firestore: \(err)")
+        } else {
+          if let snapshotDocuments = querySnapshot?.documents {
+            for doc in snapshotDocuments {
+              let data = doc.data()
+              if let messageSender = data[K.FStore.SENDER_FIELD] as? String, let messageBody = data[K.FStore.BODY_FIELD] as? String {
+                let newMessage = Message(sender: messageSender, body: messageBody)
+                self.messages.append(newMessage)
+                
+                
+                DispatchQueue.main.async {
+                  self.tableView.reloadData()
+                  let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                  self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                }
+                
               }
-              
             }
           }
         }
       }
-    }
   }
   
   @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
